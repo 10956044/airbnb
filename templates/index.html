@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>台灣 Airbnb 搜尋平台</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="search-container">
+            <h1>尋找理想的住宿地點</h1>
+            <div class="search-box">
+                <input type="text" id="cityInput" placeholder="請輸入台北市行政區（如：大安區）...">
+                
+                <div class="filters">
+                    <div class="filter-group">
+                        <label>房型：</label>
+                        <select id="roomType">
+                            <option value="">All</option>
+                            <option value="Entire home apt">Entire home apt</option>
+                            <option value="Private room">Private room</option>
+                            <option value="Shared room">Shared room</option>
+                            <option value="Hotel room">Hotel room</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label>價格範圍：</label>
+                        <input type="number" id="minPrice" placeholder="最低價格">
+                        <span>-</span>
+                        <input type="number" id="maxPrice" placeholder="最高價格">
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label>最低評分：</label>
+                        <select id="rating">
+                            <option value="">不限</option>
+                            <option value="8">8星以上</option>
+                            <option value="9">9星以上</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <button id="searchBtn">搜尋</button>
+            </div>
+        </div>
+        
+        <div id="loading" class="loading-container">
+            <div class="dots-loader">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+            <div class="loading-text">搜尋中</div>
+        </div>
+        
+        <div id="results" class="results-container">
+            <!-- 搜尋結果將在這裡動態顯示 -->
+        </div>
+    </div>
+    <div id="reviewModal" class="modal-overlay">
+        <div class="modal">
+            <div class="modal-header">
+                <h2>住客評價</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div id="reviewsContent">
+                <!-- 評價內容將在這裡動態插入 -->
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html> 
